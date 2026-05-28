@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function footToMeter (foot) {
+            return foot * 0.305;
+        }
+        function meterToFoot (meter) {
+            return meter * 3.279;
+        }
+        let choice = Number(prompt("Chọn kiểu chuyển đổi:\n1. Foot -> Meter\n2. Meter -> Foot"));
+        if (choice===1) {
+            let f = Number(prompt("Nhập vào foot: "));
+            console.log(f + " foot = " + footToMeter(f) + " meter");
+        }
+        else if (choice===2) {
+            let m = Number(prompt("Nhập vào meter: "));
+            console.log(m + " meter = " + meterToFoot(m) + " foot");        
+        }
+        else {
+            console.log("Lựa chọn không hợp lệ");
+        }
+    </script>
+</body>
+</html>
