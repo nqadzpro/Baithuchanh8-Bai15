@@ -5,20 +5,38 @@
 </head>
 <body>
     <script>
+        const FOOT_TO_METER_RATE = 0.305;
+        const METER_TO_FOOT_RATE = 3.279;
+        function isInvalid (value) {
+            return (value.trim() === "" ||
+                    !Number.isFinite(Number(value)) ||
+                    Number(value)<0
+                );
+        }
         function footToMeter (foot) {
-            return foot * 0.305;
+            return foot * FOOT_TO_METER_RATE;
         }
         function meterToFoot (meter) {
-            return meter * 3.279;
+            return meter * METER_TO_FOOT_RATE;
         }
         let choice = Number(prompt("Chọn kiểu chuyển đổi:\n1. Foot -> Meter\n2. Meter -> Foot"));
         if (choice===1) {
-            let f = Number(prompt("Nhập vào foot: "));
-            console.log(f + " foot = " + footToMeter(f) + " meter");
+            const input = prompt("Nhập vào foot: ");
+            if (isInvalid(input)) {
+                console.log("Dữ liệu không hợp lệ");
+            } else {
+                const foot = Number(input);
+                console.log(`${foot} foot = ${footToMeter(foot).toFixed(2)} meter`);
+            }
         }
         else if (choice===2) {
-            let m = Number(prompt("Nhập vào meter: "));
-            console.log(m + " meter = " + meterToFoot(m) + " foot");        
+            const input = prompt("Nhập vào meter: ");
+            if (isInvalid(input)) {
+                console.log("Dữ liệu không hợp lệ");
+            } else {
+            const meter = Number(input);
+            console.log(`${meter} meter = ${meterToFoot(meter).toFixed(2)} foot`);
+            }
         }
         else {
             console.log("Lựa chọn không hợp lệ");
